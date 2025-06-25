@@ -12,6 +12,7 @@ from PyQt5.QtWidgets import (QApplication, QMainWindow, QVBoxLayout,
                              QCheckBox, QSpinBox, QComboBox, QSlider)
 from PyQt5.QtCore import Qt, QTime, QDate, QTimer
 from PyQt5.QtGui import QFont, QPalette, QColor, QClipboard
+from file_concealer import FileConcealer
 
 
 class ShutdownTimerWindow(QMainWindow):
@@ -38,7 +39,7 @@ class ShutdownTimerWindow(QMainWindow):
         # Create title label
         title_label = QLabel("Shutdown Timer")
         title_label.setAlignment(Qt.AlignCenter)
-        title_label.setFont(QFont("Arial", 20, QFont.Bold))
+        title_label.setFont(QFont("Arial", 10, QFont.Bold))
         title_label.setStyleSheet("""
             QLabel {
                 color: #2c3e50;
@@ -51,7 +52,7 @@ class ShutdownTimerWindow(QMainWindow):
         # Create description label
         desc_label = QLabel("Schedule your computer to shutdown at a specific date and time")
         desc_label.setAlignment(Qt.AlignCenter)
-        desc_label.setFont(QFont("Arial", 11))
+        desc_label.setFont(QFont("Arial", 8))
         desc_label.setStyleSheet("""
             QLabel {
                 color: #7f8c8d;
@@ -65,7 +66,7 @@ class ShutdownTimerWindow(QMainWindow):
         
         # Left side - Calendar and Time selection
         left_frame = QGroupBox("Select Date & Time")
-        left_frame.setFont(QFont("Arial", 12, QFont.Bold))
+        left_frame.setFont(QFont("Arial", 8, QFont.Bold))
         left_frame.setStyleSheet("""
             QGroupBox {
                 font-weight: bold;
@@ -145,14 +146,14 @@ class ShutdownTimerWindow(QMainWindow):
         # Time selection
         time_layout = QHBoxLayout()
         time_label = QLabel("Time:")
-        time_label.setFont(QFont("Arial", 11, QFont.Bold))
+        time_label.setFont(QFont("Arial", 8, QFont.Bold))
         
         self.time_edit = QTimeEdit()
         self.time_edit.setTime(QTime.currentTime().addSecs(3600))  # Default to 1 hour from now
         self.time_edit.setDisplayFormat("hh:mm:ss AP")
         self.time_edit.setStyleSheet("""
             QTimeEdit {
-                font-size: 14px;
+                font-size: 8px;
                 padding: 8px;
                 border: 2px solid #bdc3c7;
                 border-radius: 5px;
@@ -173,7 +174,7 @@ class ShutdownTimerWindow(QMainWindow):
         
         # Right side - Status and Controls
         right_frame = QGroupBox("Status & Controls")
-        right_frame.setFont(QFont("Arial", 12, QFont.Bold))
+        right_frame.setFont(QFont("Arial", 8, QFont.Bold))
         right_frame.setStyleSheet("""
             QGroupBox {
                 font-weight: bold;
@@ -203,7 +204,7 @@ class ShutdownTimerWindow(QMainWindow):
                 border-radius: 5px;
                 padding: 10px;
                 font-family: 'Consolas', 'Monaco', monospace;
-                font-size: 11px;
+                font-size: 8px;
             }
         """)
         self.status_text.append("Ready to schedule shutdown...")
@@ -213,7 +214,7 @@ class ShutdownTimerWindow(QMainWindow):
         
         self.schedule_btn = QPushButton("Schedule Shutdown")
         self.schedule_btn.setMinimumHeight(45)
-        self.schedule_btn.setFont(QFont("Arial", 11, QFont.Bold))
+        self.schedule_btn.setFont(QFont("Arial", 8, QFont.Bold))
         self.schedule_btn.setStyleSheet("""
             QPushButton {
                 background-color: #e74c3c;
@@ -234,7 +235,7 @@ class ShutdownTimerWindow(QMainWindow):
         
         self.cancel_btn = QPushButton("Cancel Shutdown")
         self.cancel_btn.setMinimumHeight(45)
-        self.cancel_btn.setFont(QFont("Arial", 11, QFont.Bold))
+        self.cancel_btn.setFont(QFont("Arial", 8, QFont.Bold))
         self.cancel_btn.setStyleSheet("""
             QPushButton {
                 background-color: #f39c12;
@@ -256,7 +257,7 @@ class ShutdownTimerWindow(QMainWindow):
         
         self.back_btn = QPushButton("Back to Main Menu")
         self.back_btn.setMinimumHeight(45)
-        self.back_btn.setFont(QFont("Arial", 11, QFont.Bold))
+        self.back_btn.setFont(QFont("Arial", 8, QFont.Bold))
         self.back_btn.setStyleSheet("""
             QPushButton {
                 background-color: #95a5a6;
@@ -457,7 +458,7 @@ class PasswordGeneratorWindow(QMainWindow):
         # Set window properties
         self.setWindowTitle("Password Generator - Utility Tools")
         self.setGeometry(150, 150, 1000, 800)
-        self.setFixedSize(1000, 800)
+        self.setFixedSize(960, 572)
         
         # Create central widget and main layout
         central_widget = QWidget()
@@ -470,7 +471,7 @@ class PasswordGeneratorWindow(QMainWindow):
         # Create title label
         title_label = QLabel("Smart Password Generator")
         title_label.setAlignment(Qt.AlignCenter)
-        title_label.setFont(QFont("Arial", 20, QFont.Bold))
+        title_label.setFont(QFont("Arial", 10, QFont.Bold))
         title_label.setStyleSheet("""
             QLabel {
                 color: #2c3e50;
@@ -483,7 +484,7 @@ class PasswordGeneratorWindow(QMainWindow):
         # Create description label
         desc_label = QLabel("Generate memorable yet secure passwords using real words and smart patterns")
         desc_label.setAlignment(Qt.AlignCenter)
-        desc_label.setFont(QFont("Arial", 11))
+        desc_label.setFont(QFont("Arial", 8))
         desc_label.setStyleSheet("""
             QLabel {
                 color: #7f8c8d;
@@ -497,7 +498,7 @@ class PasswordGeneratorWindow(QMainWindow):
         
         # Left side - Password Options
         left_frame = QGroupBox("Password Options")
-        left_frame.setFont(QFont("Arial", 12, QFont.Bold))
+        left_frame.setFont(QFont("Arial", 8, QFont.Bold))
         left_frame.setStyleSheet("""
             QGroupBox {
                 font-weight: bold;
@@ -517,7 +518,7 @@ class PasswordGeneratorWindow(QMainWindow):
         
         # Password Pattern Selection
         pattern_label = QLabel("Password Pattern:")
-        pattern_label.setFont(QFont("Arial", 11, QFont.Bold))
+        pattern_label.setFont(QFont("Arial", 8, QFont.Bold))
         
         self.pattern_combo = QComboBox()
         self.pattern_combo.addItems([
@@ -533,7 +534,7 @@ class PasswordGeneratorWindow(QMainWindow):
                 border: 2px solid #bdc3c7;
                 border-radius: 5px;
                 background-color: white;
-                font-size: 11px;
+                font-size: 8px;
             }
             QComboBox:focus {
                 border-color: #27ae60;
@@ -552,7 +553,7 @@ class PasswordGeneratorWindow(QMainWindow):
         
         # Number Range
         number_label = QLabel("Number Range:")
-        number_label.setFont(QFont("Arial", 11, QFont.Bold))
+        number_label.setFont(QFont("Arial", 8, QFont.Bold))
         
         number_layout = QHBoxLayout()
         self.min_number = QSpinBox()
@@ -594,7 +595,7 @@ class PasswordGeneratorWindow(QMainWindow):
         
         # Options
         self.include_symbols = QCheckBox("Include symbols (!@#$%)")
-        self.include_symbols.setFont(QFont("Arial", 10))
+        self.include_symbols.setFont(QFont("Arial", 8))
         self.include_symbols.setStyleSheet("""
             QCheckBox {
                 spacing: 8px;
@@ -613,7 +614,7 @@ class PasswordGeneratorWindow(QMainWindow):
         """)
         
         self.capitalize_random = QCheckBox("Random capitalization")
-        self.capitalize_random.setFont(QFont("Arial", 10))
+        self.capitalize_random.setFont(QFont("Arial", 8))
         self.capitalize_random.setChecked(True)
         self.capitalize_random.setStyleSheet("""
             QCheckBox {
@@ -633,7 +634,7 @@ class PasswordGeneratorWindow(QMainWindow):
         """)
         
         self.leet_speak = QCheckBox("Leet speak (replace some letters with numbers)")
-        self.leet_speak.setFont(QFont("Arial", 10))
+        self.leet_speak.setFont(QFont("Arial", 8))
         self.leet_speak.setStyleSheet("""
             QCheckBox {
                 spacing: 8px;
@@ -654,7 +655,7 @@ class PasswordGeneratorWindow(QMainWindow):
         # Generate button
         self.generate_btn = QPushButton("Generate Password")
         self.generate_btn.setMinimumHeight(45)
-        self.generate_btn.setFont(QFont("Arial", 11, QFont.Bold))
+        self.generate_btn.setFont(QFont("Arial", 8, QFont.Bold))
         self.generate_btn.setStyleSheet("""
             QPushButton {
                 background-color: #27ae60;
@@ -685,7 +686,7 @@ class PasswordGeneratorWindow(QMainWindow):
         
         # Right side - Generated Passwords
         right_frame = QGroupBox("Generated Passwords")
-        right_frame.setFont(QFont("Arial", 12, QFont.Bold))
+        right_frame.setFont(QFont("Arial", 8, QFont.Bold))
         right_frame.setStyleSheet("""
             QGroupBox {
                 font-weight: bold;
@@ -705,7 +706,7 @@ class PasswordGeneratorWindow(QMainWindow):
         
         # Current password display
         current_label = QLabel("Current Password:")
-        current_label.setFont(QFont("Arial", 11, QFont.Bold))
+        current_label.setFont(QFont("Arial", 8, QFont.Bold))
         
         password_display_layout = QHBoxLayout()
         self.password_display = QLineEdit()
@@ -726,7 +727,7 @@ class PasswordGeneratorWindow(QMainWindow):
         self.copy_btn = QPushButton("📋 Copy")
         self.copy_btn.setMinimumHeight(45)
         self.copy_btn.setMinimumWidth(80)
-        self.copy_btn.setFont(QFont("Arial", 10, QFont.Bold))
+        self.copy_btn.setFont(QFont("Arial", 8, QFont.Bold))
         self.copy_btn.setStyleSheet("""
             QPushButton {
                 background-color: #3498db;
@@ -751,7 +752,7 @@ class PasswordGeneratorWindow(QMainWindow):
         
         # Password history
         history_label = QLabel("Password History:")
-        history_label.setFont(QFont("Arial", 11, QFont.Bold))
+        history_label.setFont(QFont("Arial", 8, QFont.Bold))
         
         self.password_history = QTextEdit()
         self.password_history.setReadOnly(True)
@@ -763,7 +764,7 @@ class PasswordGeneratorWindow(QMainWindow):
                 border-radius: 5px;
                 padding: 10px;
                 font-family: 'Consolas', 'Monaco', monospace;
-                font-size: 11px;
+                font-size: 8px;
                 color: #2c3e50;
             }
         """)
@@ -771,7 +772,7 @@ class PasswordGeneratorWindow(QMainWindow):
         
         # Password strength indicator
         strength_label = QLabel("Password Strength:")
-        strength_label.setFont(QFont("Arial", 11, QFont.Bold))
+        strength_label.setFont(QFont("Arial", 8, QFont.Bold))
         
         self.strength_bar = QLabel("Not generated yet")
         self.strength_bar.setAlignment(Qt.AlignCenter)
@@ -792,7 +793,7 @@ class PasswordGeneratorWindow(QMainWindow):
         
         self.regenerate_btn = QPushButton("Generate Another")
         self.regenerate_btn.setMinimumHeight(40)
-        self.regenerate_btn.setFont(QFont("Arial", 10, QFont.Bold))
+        self.regenerate_btn.setFont(QFont("Arial", 8, QFont.Bold))
         self.regenerate_btn.setStyleSheet("""
             QPushButton {
                 background-color: #f39c12;
@@ -814,7 +815,7 @@ class PasswordGeneratorWindow(QMainWindow):
         
         self.back_btn = QPushButton("Back to Main Menu")
         self.back_btn.setMinimumHeight(40)
-        self.back_btn.setFont(QFont("Arial", 10, QFont.Bold))
+        self.back_btn.setFont(QFont("Arial", 8, QFont.Bold))
         self.back_btn.setStyleSheet("""
             QPushButton {
                 background-color: #95a5a6;
@@ -1083,8 +1084,8 @@ class ChrisTitusToolsWindow(QMainWindow):
     def init_ui(self):
         # Set window properties
         self.setWindowTitle("Chris Titus Tools - Utility Tools")
-        self.setGeometry(150, 150, 800, 920)
-        self.setFixedSize(800, 920)
+        self.setGeometry(150, 150, 800, 800)
+        self.setFixedSize(800, 800)
         
         # Create central widget and main layout
         central_widget = QWidget()
@@ -1097,7 +1098,7 @@ class ChrisTitusToolsWindow(QMainWindow):
         # Create title label
         title_label = QLabel("Chris Titus Tech's Windows Utility")
         title_label.setAlignment(Qt.AlignCenter)
-        title_label.setFont(QFont("Arial", 18, QFont.Bold))
+        title_label.setFont(QFont("Arial", 10, QFont.Bold))
         title_label.setStyleSheet("""
             QLabel {
                 color: #2c3e50;
@@ -1122,7 +1123,7 @@ class ChrisTitusToolsWindow(QMainWindow):
         desc_layout.setSpacing(8)
         
         desc_title = QLabel("About Chris Titus Tech's Windows Utility")
-        desc_title.setFont(QFont("Arial", 12, QFont.Bold))
+        desc_title.setFont(QFont("Arial", 8, QFont.Bold))
         desc_title.setStyleSheet("color: #2c3e50; margin-bottom: 5px;")
         
         desc_text = QLabel("""This tool provides a comprehensive set of Windows utilities and tweaks including:
@@ -1130,7 +1131,7 @@ class ChrisTitusToolsWindow(QMainWindow):
 • Software installation and management • Registry fixes and system repairs • Gaming optimizations
 
 The tool will open in an elevated PowerShell window with administrative privileges.""")
-        desc_text.setFont(QFont("Arial", 10))
+        desc_text.setFont(QFont("Arial", 8))
         desc_text.setStyleSheet("color: #34495e; line-height: 1.4;")
         desc_text.setWordWrap(True)
         
@@ -1152,12 +1153,12 @@ The tool will open in an elevated PowerShell window with administrative privileg
         warning_layout.setSpacing(5)
         
         warning_title = QLabel("⚠️ Important Notice")
-        warning_title.setFont(QFont("Arial", 11, QFont.Bold))
+        warning_title.setFont(QFont("Arial", 8, QFont.Bold))
         warning_title.setStyleSheet("color: #856404;")
         
         warning_text = QLabel("""• Requires Administrator privileges • Makes system-level changes to Windows
 • Create a system restore point before proceeding • Close other applications to avoid conflicts""")
-        warning_text.setFont(QFont("Arial", 9))
+        warning_text.setFont(QFont("Arial", 8))
         warning_text.setStyleSheet("color: #856404; margin-top: 3px;")
         warning_text.setWordWrap(True)
         
@@ -1166,7 +1167,7 @@ The tool will open in an elevated PowerShell window with administrative privileg
         
         # Create command display
         command_frame = QGroupBox("Command to be executed:")
-        command_frame.setFont(QFont("Arial", 10, QFont.Bold))
+        command_frame.setFont(QFont("Arial", 8, QFont.Bold))
         command_frame.setStyleSheet("""
             QGroupBox {
                 font-weight: bold;
@@ -1188,7 +1189,7 @@ The tool will open in an elevated PowerShell window with administrative privileg
         self.command_display = QLineEdit()
         self.command_display.setText("iwr -useb https://christitus.com/win | iex")
         self.command_display.setReadOnly(True)
-        self.command_display.setFont(QFont("Consolas", 11, QFont.Bold))
+        self.command_display.setFont(QFont("Consolas", 8, QFont.Bold))
         self.command_display.setStyleSheet("""
             QLineEdit {
                 padding: 10px;
@@ -1202,7 +1203,7 @@ The tool will open in an elevated PowerShell window with administrative privileg
         
         copy_cmd_btn = QPushButton("📋 Copy Command")
         copy_cmd_btn.setMinimumHeight(32)
-        copy_cmd_btn.setFont(QFont("Arial", 9, QFont.Bold))
+        copy_cmd_btn.setFont(QFont("Arial", 8, QFont.Bold))
         copy_cmd_btn.setStyleSheet("""
             QPushButton {
                 background-color: #95a5a6;
@@ -1236,7 +1237,7 @@ The tool will open in an elevated PowerShell window with administrative privileg
                 border-radius: 5px;
                 padding: 8px;
                 font-family: 'Consolas', 'Monaco', monospace;
-                font-size: 9px;
+                font-size: 8px;
             }
         """)
         self.status_text.append("Ready to launch Chris Titus Tech's Windows Utility...")
@@ -1247,7 +1248,7 @@ The tool will open in an elevated PowerShell window with administrative privileg
         
         self.launch_btn = QPushButton("🚀 Launch Chris Titus Tools")
         self.launch_btn.setMinimumHeight(45)
-        self.launch_btn.setFont(QFont("Arial", 11, QFont.Bold))
+        self.launch_btn.setFont(QFont("Arial", 8, QFont.Bold))
         self.launch_btn.setStyleSheet("""
             QPushButton {
                 background-color: #e67e22;
@@ -1268,7 +1269,7 @@ The tool will open in an elevated PowerShell window with administrative privileg
         
         self.back_btn = QPushButton("Back to Main Menu")
         self.back_btn.setMinimumHeight(45)
-        self.back_btn.setFont(QFont("Arial", 10, QFont.Bold))
+        self.back_btn.setFont(QFont("Arial", 8, QFont.Bold))
         self.back_btn.setStyleSheet("""
             QPushButton {
                 background-color: #95a5a6;
@@ -1389,9 +1390,6 @@ The tool will open in an elevated PowerShell window with administrative privileg
             command = "iwr -useb https://christitus.com/win | iex"
             
             # Create a temporary PowerShell script
-            import tempfile
-            import os
-            
             with tempfile.NamedTemporaryFile(mode='w', suffix='.ps1', delete=False) as f:
                 f.write(f"""
 # Chris Titus Tech Windows Utility Launcher
@@ -1462,39 +1460,39 @@ class UtilityToolsMainWindow(QMainWindow):
     def init_ui(self):
         # Set window properties
         self.setWindowTitle("Utility Tools by CodeKokeshi")
-        self.setGeometry(100, 100, 800, 600)
-        self.setMinimumSize(600, 500)
+        self.setGeometry(100, 100, 700, 500)
+        self.setMinimumSize(600, 450)
         
         # Create central widget and main layout
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
         
         main_layout = QVBoxLayout(central_widget)
-        main_layout.setSpacing(20)
-        main_layout.setContentsMargins(30, 30, 30, 30)
+        main_layout.setSpacing(15)
+        main_layout.setContentsMargins(25, 25, 25, 25)
         
         # Create title label
         title_label = QLabel("Utility Tools by CodeKokeshi")
         title_label.setAlignment(Qt.AlignCenter)
-        title_label.setFont(QFont("Arial", 24, QFont.Bold))
+        title_label.setFont(QFont("Arial", 10, QFont.Bold))
         title_label.setStyleSheet("""
             QLabel {
                 color: #2c3e50;
-                padding: 20px;
+                padding: 15px;
                 border-bottom: 3px solid #3498db;
-                margin-bottom: 20px;
+                margin-bottom: 15px;
             }
         """)
         
         # Create subtitle
         subtitle_label = QLabel("Select a utility tool to get started")
         subtitle_label.setAlignment(Qt.AlignCenter)
-        subtitle_label.setFont(QFont("Arial", 12))
+        subtitle_label.setFont(QFont("Arial", 8))
         subtitle_label.setStyleSheet("""
             QLabel {
                 color: #7f8c8d;
-                padding: 10px;
-                margin-bottom: 20px;
+                padding: 8px;
+                margin-bottom: 15px;
             }
         """)
         
@@ -1504,13 +1502,13 @@ class UtilityToolsMainWindow(QMainWindow):
             QFrame {
                 background-color: #f8f9fa;
                 border-radius: 10px;
-                padding: 20px;
+                padding: 15px;
             }
         """)
         
         # Create grid layout for buttons
         buttons_layout = QGridLayout(buttons_frame)
-        buttons_layout.setSpacing(15)
+        buttons_layout.setSpacing(12)
         
         # Define button data (text, row, column)
         button_data = [
@@ -1545,8 +1543,8 @@ class UtilityToolsMainWindow(QMainWindow):
     def create_tool_button(self, text):
         """Create a styled button for utility tools"""
         button = QPushButton(text)
-        button.setMinimumSize(250, 80)
-        button.setFont(QFont("Arial", 11, QFont.Medium))
+        button.setMinimumSize(200, 60)
+        button.setFont(QFont("Arial", 8, QFont.Medium))
         
         # Different style for placeholder button
         if text == "Coming Soon...":
@@ -1556,7 +1554,7 @@ class UtilityToolsMainWindow(QMainWindow):
                     border: 2px solid #bdc3c7;
                     border-radius: 8px;
                     color: #95a5a6;
-                    padding: 15px;
+                    padding: 10px;
                     text-align: center;
                     font-style: italic;
                 }
@@ -1573,7 +1571,7 @@ class UtilityToolsMainWindow(QMainWindow):
                     border: none;
                     border-radius: 8px;
                     color: white;
-                    padding: 15px;
+                    padding: 10px;
                     text-align: center;
                     font-weight: bold;
                 }
@@ -1603,6 +1601,8 @@ class UtilityToolsMainWindow(QMainWindow):
             self.open_password_generator()
         elif tool_name == "Chris Titus Tools":
             self.open_chris_titus_tools()
+        elif tool_name == "File Concealer":
+            self.open_file_concealer()
         else:
             # TODO: Implement functionality for other tools
             QMessageBox.information(self, "Coming Soon", 
@@ -1625,6 +1625,12 @@ class UtilityToolsMainWindow(QMainWindow):
         self.chris_titus_window = ChrisTitusToolsWindow(self)
         self.chris_titus_window.show()
         self.hide()  # Hide main window while Chris Titus Tools is open
+    
+    def open_file_concealer(self):
+        """Open the File Concealer window"""
+        self.file_concealer_window = FileConcealer(self)
+        self.file_concealer_window.show()
+        self.hide()  # Hide main window while File Concealer is open
 
 
 def main():
